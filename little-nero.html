@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://unpkg.com/98.css" />
+    <style>
+      .cursor-trail {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        pointer-events: none;
+        animation: fadeOut 2s forwards;
+        filter: pixelate(10px);
+      }
+
+      @keyframes fadeOut {
+        0% {
+          opacity: 1;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 0.8;
+          transform: scale(1.2);
+        }
+        100% {
+          opacity: 0;
+          transform: scale(0.8);
+        }
+      }
+      body {
+        background-image: url("/images/badguys.png");
+        font-family: "Courier New", Courier, monospace;
+      }
+      nav {
+        background-color: #910707;
+        padding: 10px;
+        width: 200px;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+      }
+      nav a {
+        font-size: 1.5rem;
+        color: white;
+        text-decoration: none;
+      }
+      h1 {
+        background-color: #ff6f69;
+      }
+    </style>
+    <title>Little Nero's Pizza</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="/index.html">
+          <img
+            src="/images/logo.png"
+            alt="Home Alone Logo"
+            style="width: 100%"
+          />
+        </a>
+        <ul>
+          <li>
+            <a href="/little-nero.html">Order Kevin a Pizza</a>
+          </li>
+          <li><a href="/contact.html">Contact Kevin's Parents</a></li>
+          <li>
+            <a href="https://www.youtube.com/watch?v=4dGOfFbzvq4&t=35s"
+              >Watch 'Angels with Filthy Souls'</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.google.com/maps/place/671+Lincoln+Ave,+Winnetka,+IL+60093/@42.1097751,-87.7361483,17z/data=!3m1!4b1!4m6!3m5!1s0x880fc4f69a151b2d:0xe1bacb40e609a6bc!8m2!3d42.1097751!4d-87.7335734!16s%2Fg%2F11c26f0q90?entry=ttu&g_ep=EgoyMDI0MTIxMS4wIKXMDSoASAFQAw%3D%3D"
+              >Visit the Home Alone House</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main style="text-align: center">
+      <img
+        src="/images/little-nero.jpeg"
+        alt="Little Nero's Pizza"
+        style="width: 20%"
+      />
+      <h1>Little Nero's Pizza</h1>
+      <iframe
+        src="https://giphy.com/embed/YGpQmBFHypquaUxzvM"
+        width="480"
+        height="271"
+        frameborder="0"
+        class="giphy-embed"
+        allowfullscreen
+      ></iframe>
+      <p>
+        <a href="https://giphy.com/clips/sabrinapacheco-YGpQmBFHypquaUxzvM"></a>
+      </p>
+      <img
+        src="/images/construction.gif"
+        alt="Page Under Construction"
+        style="width: 50%"
+      />
+    </main>
+    <script>
+      const trailImages = [
+        "images/filthyanimal.png",
+        "images/house.png",
+        "images/kevinsmom.png",
+        "images/marv.png",
+      ];
+
+      function getRandomImage() {
+        const index = Math.floor(Math.random() * trailImages.length);
+        return trailImages[index];
+      }
+
+      let lastTrailTime = 0;
+      const trailInterval = 100;
+
+      document.addEventListener("mousemove", (event) => {
+        const currentTime = Date.now();
+
+        if (currentTime - lastTrailTime > trailInterval) {
+          lastTrailTime = currentTime;
+
+          const trail = document.createElement("div");
+          trail.className = "cursor-trail";
+          trail.style.left = `${event.pageX}px`;
+          trail.style.top = `${event.pageY}px`;
+          trail.style.backgroundImage = `url(${getRandomImage()})`;
+          document.body.appendChild(trail);
+
+          setTimeout(() => {
+            trail.remove();
+          }, 2000);
+        }
+      });
+    </script>
+  </body>
+</html>

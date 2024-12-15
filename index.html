@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://unpkg.com/98.css" />
+    <style>
+      .cursor-trail {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        pointer-events: none;
+        animation: fadeOut 2s forwards;
+        filter: pixelate(10px);
+      }
+
+      @keyframes fadeOut {
+        0% {
+          opacity: 1;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 0.8;
+          transform: scale(1.2);
+        }
+        100% {
+          opacity: 0;
+          transform: scale(0.8);
+        }
+      }
+      body {
+        background-image: url("/images/badguys.png");
+        font-family: "Courier New", Courier, monospace;
+      }
+      nav {
+        background-color: #910707;
+        padding: 10px;
+        width: 200px;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+      }
+      marquee {
+        margin-left: 210px;
+      }
+
+      .retro-quote {
+        font-family: "Press Start 2P", cursive;
+        font-size: 2rem;
+        color: #ff00ff;
+        background-color: black;
+        text-align: center;
+        text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 30px #ff00ff;
+        margin-top: 2rem;
+      }
+
+      table {
+        margin: 50px auto;
+        border-collapse: collapse;
+        width: 80%;
+        margin-left: 220px;
+      }
+      td {
+        padding: 10px;
+        text-align: center;
+        border: 2px solid #910707;
+        background-color: #fff;
+      }
+      iframe {
+        border: none;
+      }
+      h1 {
+        font-size: 2rem;
+        color: #910707;
+        margin-top: 50px;
+      }
+
+      nav a {
+        font-size: 1.5rem;
+        color: white;
+      }
+
+      .radio-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 50px;
+        color: white;
+      }
+
+      .radio-container label {
+        font-family: "Courier New", Courier, monospace;
+        font-size: 1.5rem;
+        color: #ff6f00;
+        margin-bottom: 15px;
+        cursor: pointer;
+      }
+
+      input[type="radio"] {
+        background-color: transparent;
+        border: 2px solid #ff6f00;
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+        accent-color: #ff6f00;
+        cursor: pointer;
+        box-shadow: 0 0 10px rgba(255, 111, 0, 0.7);
+        transition: box-shadow 0.3s ease, transform 0.2s ease;
+      }
+
+      input[type="radio"]:hover {
+        box-shadow: 0 0 15px rgba(255, 111, 0, 1);
+        transform: scale(1.1);
+      }
+
+      input[type="radio"]:checked {
+        background-color: #ff6f00;
+        border-color: #ff6f00;
+      }
+    </style>
+    <title>Home Alone</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="/index.html">
+          <img
+            src="/images/logo.png"
+            alt="Home Alone Logo"
+            style="width: 100%"
+          />
+        </a>
+        <ul>
+          <li>
+            <a href="/little-nero.html">Order Kevin a Pizza</a>
+          </li>
+          <li><a href="/contact.html">Contact Kevin's Parents</a></li>
+          <li>
+            <a href="https://www.youtube.com/watch?v=4dGOfFbzvq4&t=35s"
+              >Watch 'Angels with Filthy Souls'</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.google.com/maps/place/671+Lincoln+Ave,+Winnetka,+IL+60093/@42.1097751,-87.7361483,17z/data=!3m1!4b1!4m6!3m5!1s0x880fc4f69a151b2d:0xe1bacb40e609a6bc!8m2!3d42.1097751!4d-87.7335734!16s%2Fg%2F11c26f0q90?entry=ttu&g_ep=EgoyMDI0MTIxMS4wIKXMDSoASAFQAw%3D%3D"
+              >Visit the Home Alone House</a
+            >
+          </li>
+        </ul>
+      </nav>
+      <marquee
+        direction="left"
+        scrolldelay="100"
+        scrollamount="5"
+        style="color: darkblue; font-weight: bold; font-size: x-large"
+        >Harry: [knocks on the back door] Merry Christmas, little fella. We know
+        that you’re in there, and that you’re all alone...</marquee
+      >
+    </header>
+    <main style="text-align: center">
+      <button
+        onclick="playAudio()"
+        style="width: 200px; height: 60px; font-size: large"
+      >
+        What Did Kevin Do?
+      </button>
+      <audio id="audio">
+        <source src="/audio/disappear.mp3" type="audio/mpeg" />
+      </audio>
+
+      <div class="retro-quote">"Keep the change, ya filthy animal!"</div>
+      <table>
+        <tr>
+          <td>
+            <iframe
+              src="https://giphy.com/embed/26tPaBeEc1XtBx04w"
+              width="480"
+              height="360"
+              allowfullscreen
+            ></iframe>
+            <p>
+              <a
+                href="https://giphy.com/gifs/homealone-90s-home-alone-26tPaBeEc1XtBx04w"
+                >Kevin jumping on bed</a
+              >
+            </p>
+          </td>
+          <td>
+            <iframe
+              src="https://giphy.com/embed/26tP5uLrL4s277A1W"
+              width="480"
+              height="360"
+              allowfullscreen
+            ></iframe>
+            <p>
+              <a
+                href="https://giphy.com/gifs/homealone-90s-home-alone-26tP5uLrL4s277A1W"
+                >Wet bandits falling down</a
+              >
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <iframe
+              src="https://giphy.com/embed/GlzQYvSzObhdK"
+              width="480"
+              height="269"
+              allowfullscreen
+            ></iframe>
+            <p>
+              <a href="https://giphy.com/gifs/for-tree-awesome-GlzQYvSzObhdK"
+                >Marv's feet</a
+              >
+            </p>
+          </td>
+          <td>
+            <iframe
+              src="https://giphy.com/embed/d2Z7lyGSWm5drlV6"
+              width="480"
+              height="360"
+              allowfullscreen
+            ></iframe>
+            <p>
+              <a
+                href="https://giphy.com/gifs/homealone-90s-home-alone-d2Z7lyGSWm5drlV6"
+                >Kevin scores</a
+              >
+            </p>
+          </td>
+        </tr>
+      </table>
+
+      <div class="radio-container">
+        <h3 style="font-size: 2rem; color: #ff00ff; background-color: black">
+          Do you like this page?
+        </h3>
+        <form
+          id="like-form"
+          style="
+            background-color: darkblue;
+            border-radius: 10px;
+            padding: 20px;
+            display: inline-block;
+            box-shadow: 0 0 20px rgba(255, 0, 255, 0.7);
+          "
+        >
+          <label
+            style="color: #00ff00; background-color: black; font-size: 1.2rem"
+          >
+            <input
+              type="radio"
+              name="like"
+              value="yes"
+              style="transform: scale(1.5); margin-right: 10px"
+            />
+            Yes
+          </label>
+          <br /><br />
+          <label
+            style="color: #00ff00; background-color: black; font-size: 1.2rem"
+          >
+            <input
+              type="radio"
+              name="like"
+              value="no"
+              style="transform: scale(1.5); margin-right: 10px"
+            />
+            No
+          </label>
+          <br /><br />
+          <button
+            type="submit"
+            style="
+              font-size: 1.2rem;
+              color: black;
+              background-color: #ff00ff;
+              padding: 10px 20px;
+              border: none;
+              border-radius: 5px;
+              cursor: pointer;
+            "
+          >
+            Submit
+          </button>
+        </form>
+        <p
+          id="response-message"
+          style="
+            margin-top: 10px;
+            color: #ff00ff;
+            background-color: black;
+            font-size: 1.2rem;
+          "
+        ></p>
+      </div>
+    </main>
+    <footer>
+      <img
+        src="/images/kevin.png"
+        alt="Kevin McCalister"
+        style="
+          display: block;
+          width: 50%;
+          padding-top: 15vh;
+          padding-bottom: 0;
+          margin: auto;
+        "
+      />
+      <marquee
+        direction="left"
+        scrolldelay="100"
+        scrollamount="5"
+        style="
+          background-color: white;
+          color: darkblue;
+          font-weight: bold;
+          font-size: x-large;
+        "
+        >[Harry and Marv have caught Kevin in the Murphy’s house and hung him on
+        the basement door] Marv: What are we gonna do to him, Harry? Harry:
+        We’ll do exactly what he did to us: we’re gonna burn his head with a
+        blowtorch! Marv: And smash his face with an iron! Harry: How about we
+        slap him in the face with a paint can! Marv: Or shove a nail through his
+        foot! [Behind them, Marley sneaks in with his snow shovel] Harry: First
+        thing I’m gonna do is to bite off every one of these little fingers, one
+        at a time… [Marley raises his shovel and knocks Marv out cold, Harry
+        turns around only to be knocked out, too. Marley lifts Kevin off the
+        door] Marley: Come on, let’s get you home.</marquee
+      >
+    </footer>
+    <script>
+      const trailImages = [
+        "images/filthyanimal.png",
+        "images/house.png",
+        "images/kevinsmom.png",
+        "images/marv.png",
+      ];
+
+      function getRandomImage() {
+        const index = Math.floor(Math.random() * trailImages.length);
+        return trailImages[index];
+      }
+
+      let lastTrailTime = 0;
+      const trailInterval = 100;
+
+      document.addEventListener("mousemove", (event) => {
+        const currentTime = Date.now();
+
+        if (currentTime - lastTrailTime > trailInterval) {
+          lastTrailTime = currentTime;
+
+          const trail = document.createElement("div");
+          trail.className = "cursor-trail";
+          trail.style.left = `${event.pageX}px`;
+          trail.style.top = `${event.pageY}px`;
+          trail.style.backgroundImage = `url(${getRandomImage()})`;
+          document.body.appendChild(trail);
+
+          setTimeout(() => {
+            trail.remove();
+          }, 2000);
+        }
+      });
+
+      function playAudio() {
+        document.getElementById("audio").play();
+      }
+
+      document
+        .getElementById("like-form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          const formData = new FormData(event.target);
+          const likeResponse = formData.get("like");
+          const responseMessage = document.getElementById("response-message");
+
+          if (likeResponse === "yes") {
+            responseMessage.textContent = "Awesome! Glad you like it!";
+          } else {
+            responseMessage.textContent = "Oh no! We'll try to make it better!";
+          }
+        });
+    </script>
+  </body>
+</html>
